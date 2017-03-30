@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html class="no-js" lang="ko">
+<head>
+
+    <title><%= title %></title>
+
+    <% include partials/head.ejs %>
+
+    <link rel="stylesheet" href="/css/main.css">
+
+    <script src="/js/main.js"></script>
+
+</head>
+<body>
+
+<% include partials/header.ejs %>
+
+<div class="container update">
+
+    <h1>Update</h1>
+
+    <form method="post" action="/search">
+        <div class="form-group">
+            <label class="control-label">Search</label>
+            <select class="form-control search" name="searchValue">
+                <option value="">변경할 데이터를 선택하세요.</option>
+                <% for (var i in docs) { %>
+                <option value="<%= docs[i]._id %>"><%= docs[i].quiz %></option>
+                <% } %>
+            </select>
+        </div>
+    </form>
+
+    <form id="write_form" method="post" action="/form/update">
+        <div class="form-group">
+            <label class="control-label">_id</label>
+            <input type="text" class="form-control" name="_id" value="" disabled>
+        </div>
+        <div class="form-group">
+            <label class="control-label">Type</label>
+            <select class="form-control" name="codeType">
+                <option value="html">html</option>
+                <option value="css">css</option>
+                <option value="javascript">javascript</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="control-label">Quiz</label>
+            <input type="text" class="form-control" name="quiz" placeholder="Please enter a quiz.">
+        </div>
+        <div class="form-group">
+            <label class="control-label">Exam 1</label>
+            <textarea class="form-control" rows="4" name="exam1" placeholder="Enter content 1"></textarea>
+        </div>
+        <div class="form-group">
+            <label class="control-label">Exam 2</label>
+            <textarea class="form-control" rows="4" name="exam2" placeholder="Enter content 2."></textarea>
+        </div>
+        <div class="form-group">
+            <label class="control-label">Exam 3</label>
+            <textarea class="form-control" rows="4" name="exam3" placeholder="Enter content 3."></textarea>
+        </div>
+        <div class="form-group">
+            <input type="checkbox" class="agree_submit">
+            <button type="submit" class="btn btn-primary" disabled>Complete</button>
+        </div>
+    </form>
+
+</div>
+<% include partials/google_analytic.ejs %>
+</body>
+</html>

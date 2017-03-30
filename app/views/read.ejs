@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html class="no-js" lang="ko">
+<head>
+
+    <title><%= title %></title>
+
+    <% include partials/head.ejs %>
+    <% include partials/highlight.ejs %>
+
+    <link rel="stylesheet" href="/css/main.css">
+
+    <script src="/js/main.js"></script>
+
+</head>
+<body>
+
+<% include partials/header.ejs %>
+
+<div class="container read">
+
+    <%= docs.quiz %>
+
+    <div>
+<pre><code class="<%= docs.codeType %>">
+<%= docs.exam1 %>
+</code></pre>
+    </div>
+
+
+</div>
+<% include partials/google_analytic.ejs %>
+</body>
+</html>
